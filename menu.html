@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Rakesh Adam">
+    <meta name="description" content="Order delicious tacos from Little Taco Shop">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <title>Menu - Little Taco Shop</title>
+</head>
+
+<body>
+    <header>
+        <h1>Welcome To Little Taco Shop</h1>
+    </header>
+    <nav>
+        <ul>
+            <li>
+                <a href="index.html">Home </a>
+            </li>
+            <li>
+                <a href="index.html#about">About <abbr title="Little Taco Shop">LTS</abbr></a>
+            </li>
+            <li>
+                <a href="menu.html">Menu </a>
+            </li>
+            <li>
+                <a href="hours.html">Working Hours </a>
+            </li>
+            <li>
+                <a href="contact.html">Contact Us</a>
+            </li>
+        </ul>
+    </nav>
+    <figure>
+        <img src="tacosmenu.webp" alt="Order Tacos now!" width="500" height="300">
+        <figcaption>
+            Tacos with a drink is Awesome!
+        </figcaption>
+    </figure>
+    <hr>
+    <main>
+        <article id="menu">
+            <h2>Order Our Menu</h2>
+            
+            <section class="menu-section">
+                <div class="menu-item">
+                    <div class="menu-card">
+                        <img src="crispy.jpg" alt="Crispy Tacos" class="menu-image" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22250%22 height=%22250%22%3E%3Crect fill=%22%23FFE0B2%22 width=%22250%22 height=%22250%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23FF6B35%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22%3ECrispy Tacos%3C/text%3E%3C/svg%3E'">
+                        <h3>Crispy Tacos</h3>
+                        <p class="description">Delicious crunchy shell tacos with your favorite toppings</p>
+                        <p class="price">$<span id="crispy-price">1.50</span> per taco</p>
+                        
+                        <div class="order-container">
+                            <label for="crispy-qty">Quantity:</label>
+                            <div class="quantity-control">
+                                <button type="button" class="qty-btn" onclick="updateQuantity('crispy', -1)">−</button>
+                                <input type="number" id="crispy-qty" name="crispy-qty" value="1" min="1" max="20" onchange="updateCrispyPrice()">
+                                <button type="button" class="qty-btn" onclick="updateQuantity('crispy', 1)">+</button>
+                            </div>
+                            <p class="total-price">Total: $<span id="crispy-total">1.50</span></p>
+                            <button type="button" class="add-btn" onclick="addToOrder('Crispy', 'crispy')">Add to Order</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-card">
+                        <img src="soft.jpg" alt="Soft/Smooth Tacos" class="menu-image" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22250%22 height=%22250%22%3E%3Crect fill=%22%23FFE0B2%22 width=%22250%22 height=%22250%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23FF6B35%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22%3ESoft/Smooth Tacos%3C/text%3E%3C/svg%3E'">
+                        <h3>Soft/Smooth Tacos</h3>
+                        <p class="description">Premium soft tortilla tacos with premium toppings</p>
+                        <p class="price">$<span id="soft-price">2.00</span> per taco</p>
+                        
+                        <div class="order-container">
+                            <label for="soft-qty">Quantity:</label>
+                            <div class="quantity-control">
+                                <button type="button" class="qty-btn" onclick="updateQuantity('soft', -1)">−</button>
+                                <input type="number" id="soft-qty" name="soft-qty" value="1" min="1" max="20" onchange="updateSoftPrice()">
+                                <button type="button" class="qty-btn" onclick="updateQuantity('soft', 1)">+</button>
+                            </div>
+                            <p class="total-price">Total: $<span id="soft-total">2.00</span></p>
+                            <button type="button" class="add-btn" onclick="addToOrder('Soft/Smooth', 'soft')">Add to Order</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="order-summary">
+                <h3>Your Order Summary</h3>
+                <div id="order-list">
+                    <p class="empty-order">No items added yet</p>
+                </div>
+                <div class="summary-footer">
+                    <p class="grand-total">Grand Total: $<span id="grand-total">0.00</span></p>
+                    <button type="button" class="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
+                    <button type="button" class="clear-btn" onclick="clearOrder()">Clear Order</button>
+                </div>
+            </section>
+
+            <hr>
+            <table>
+                <caption>Pricing Reference</caption>
+                <thead>
+                    <tr>
+                        <th>Tacos</th>
+                        <th scope="col"><abbr title="Quantity">Qty</abbr></th>
+                        <th scope="col">Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row" rowspan="3">Crispy</th>
+                        <td>1</td>
+                        <td>$1.50</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>$2.50</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>$3.20</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" rowspan="3">Soft/Smooth</th>
+                        <td>1</td>
+                        <td>$2.00</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>$3.70</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>$4.20</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3">
+                            Chips &amp; Salsa $2
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+            <br>
+            <p>
+                <a href="index.html#about">Back to Home</a>
+            </p>
+        </article>
+    </main>
+    <footer>
+        All Rights reserver for &copy;The Taco shop
+    </footer>
+
+    
+</body>
+
+</html>
