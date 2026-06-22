@@ -12,6 +12,7 @@
 </head>
 
 <body>
+    <script src="script.js"></script>
     <header>
         <h1>Contact Us - LTS</h1>
     </header>
@@ -46,18 +47,21 @@
             <fieldset>
                 <legend>Send us a message!</legend>
                 <p><label for="name">Name:</label>
-                <input type="text" name="name" id="name" placeholder="your name" required>
+                <input type="text" name="name" id="name" placeholder="Your full name" required>
             </p>
                 <p><label for="email">Email:</label>
-                <input type="text" name="email" id="email" placeholder="your email" required>
+                <input type="email" name="email" id="email" placeholder="your@email.com" required>
+            </p>
+            <p><label for="phone">Phone (Optional):</label>
+                <input type="tel" name="phone" id="phone" placeholder="123-456-7890">
             </p>
             <p>
-                <label for="message">Your message</label><br>
-                <textarea name="message" id="message" cols="30" rows="10" placeholder="your message here...."></textarea>
+                <label for="message">Your message:</label><br>
+                <textarea name="message" id="message" cols="30" rows="10" placeholder="Tell us what you think about our tacos!" required></textarea>
             </p>
             </fieldset>
-            <button type="submit">Send</button>
-            <button type="reset">Reset</button>
+            <button type="submit">Send Message</button>
+            <button type="reset">Clear Form</button>
         </form>
         </section>
         <section>

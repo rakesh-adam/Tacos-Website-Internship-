@@ -546,3 +546,212 @@ footer {
     width: 100%;
   }
 }
+
+/* ============================================
+   NOTIFICATION/TOAST STYLES
+   ============================================ */
+
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #00b894, #00cec9);
+  color: white;
+  padding: 16px 24px;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 184, 148, 0.3);
+  animation: slideIn 0.3s ease;
+  z-index: 1000;
+  max-width: 350px;
+  font-weight: 500;
+}
+
+.notification.hide {
+  animation: slideOut 0.3s ease forwards;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(400px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(400px);
+    opacity: 0;
+  }
+}
+
+/* ============================================
+   ORDER TABLE STYLES
+   ============================================ */
+
+.order-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+.order-table thead {
+  background: linear-gradient(135deg, #ff6b35, #ff9f43);
+  color: white;
+}
+
+.order-table th {
+  padding: 14px;
+  text-align: left;
+  font-weight: 600;
+}
+
+.order-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #eee;
+}
+
+.order-table tbody tr {
+  transition: all 0.3s ease;
+}
+
+.order-table tbody tr:hover {
+  background: #fff9f0;
+}
+
+.order-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.order-table .remove-btn {
+  background: #e85a2a;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: all 0.3s ease;
+}
+
+.order-table .remove-btn:hover {
+  background: #d63031;
+  transform: scale(1.05);
+}
+
+/* ============================================
+   FORM ERROR STYLES
+   ============================================ */
+
+.error {
+  color: #d63031;
+  font-size: 0.9em;
+  margin-top: 5px;
+  display: block;
+  font-weight: 600;
+  animation: shake 0.3s ease;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+input:invalid {
+  border-color: #d63031 !important;
+}
+
+input:valid {
+  border-color: #00b894 !important;
+}
+
+/* ============================================
+   DETAILS/SUMMARY STYLES
+   ============================================ */
+
+details {
+  margin: 15px 0;
+  padding: 12px;
+  background: rgba(255, 107, 53, 0.05);
+  border-radius: 8px;
+  border-left: 4px solid #ff6b35;
+  cursor: pointer;
+}
+
+summary {
+  color: #d63031;
+  font-weight: 600;
+  user-select: none;
+  transition: all 0.3s ease;
+  padding: 8px;
+}
+
+summary:hover {
+  color: #ff6b35;
+  transform: translateX(5px);
+}
+
+details[open] summary {
+  color: #ff6b35;
+  margin-bottom: 10px;
+}
+
+details p {
+  margin: 10px 0;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+.hidden {
+  display: none !important;
+}
+
+.visible {
+  display: block !important;
+}
+
+.active {
+  background: #ff6b35 !important;
+  color: white !important;
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+
+@media print {
+  body {
+    background: white;
+    padding: 0;
+  }
+
+  header,
+  nav,
+  footer,
+  .add-btn,
+  .clear-btn,
+  .checkout-btn,
+  .qty-btn {
+    display: none !important;
+  }
+
+  .order-table {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+}
